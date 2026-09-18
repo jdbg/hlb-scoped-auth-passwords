@@ -34,6 +34,21 @@ Omit `--abilities` or `--post-types` entirely to leave that dimension unrestrict
 pass an empty value to allow none. A credential with neither flag set behaves like
 an ordinary Application Password with an expiry.
 
+## Scope boundaries
+
+Post-type scope restricts REST routes for post-type content only
+(`/wp/v2/posts`, `/wp/v2/pages`, and any custom post type's route). It does
+**not** restrict other REST routes - `/wp/v2/users`, `/wp/v2/media`,
+`/wp/v2/settings`, `/wp/v2/plugins`, and so on are governed only by the
+credential's own WordPress capabilities, same as an unscoped Application
+Password. Ability scope only restricts calls through the Abilities API's
+`run` endpoint.
+
+This plugin adds two extra dimensions on top of capabilities; it doesn't
+replace them. For a credential that should touch nothing outside a narrow
+set of abilities and post types, issue it to a low-privilege user as well -
+capabilities are still the floor.
+
 ## Development
 
 ```

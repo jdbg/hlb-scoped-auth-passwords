@@ -5,6 +5,7 @@
     <file>.</file>
     <exclude-pattern>/vendor/*</exclude-pattern>
     <exclude-pattern>/node_modules/*</exclude-pattern>
+    <exclude-pattern>/tests/e2e/fixtures/*</exclude-pattern>
 
     <arg value="sp"/>
     <arg name="basepath" value="."/>

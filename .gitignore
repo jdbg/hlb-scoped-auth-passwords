@@ -3,3 +3,7 @@
 .DS_Store
 *.log
 .phpunit.result.cache
+/test-results/
+/playwright-report/
+/.auth/
+/.wp-base-url

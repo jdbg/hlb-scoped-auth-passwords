@@ -1,0 +1,15 @@
+{
+    "name": "hlb-scoped-auth-passwords",
+    "private": true,
+    "description": "Scope WordPress Application Passwords to named abilities and post types, with expiry and revoke.",
+    "scripts": {
+        "playground:start": "npx @wp-playground/cli server --blueprint=blueprint.json --auto-mount",
+        "test:e2e": "playwright test",
+        "test:e2e:debug": "playwright test --debug",
+        "test:e2e:watch": "playwright test --ui"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.49.0",
+        "@wp-playground/cli": "^1.0.0"
+    }
+}

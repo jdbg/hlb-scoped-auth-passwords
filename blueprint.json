@@ -1,0 +1,30 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"landingPage": "/wp-admin/",
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"extraLibraries": ["wp-cli"],
+	"steps": [
+		{
+			"step": "defineWpConfigConsts",
+			"consts": {
+				"WP_DEBUG": true,
+				"WP_DEBUG_LOG": true,
+				"WP_ENVIRONMENT_TYPE": "local"
+			}
+		},
+		{
+			"step": "activatePlugin",
+			"pluginPath": "hlb-scoped-auth-passwords/hlb-scoped-auth-passwords.php"
+		},
+		{
+			"step": "wp-cli",
+			"command": "wp eval-file /wordpress/wp-content/plugins/hlb-scoped-auth-passwords/tests/e2e/fixtures/provision.php"
+		}
+	]
+}

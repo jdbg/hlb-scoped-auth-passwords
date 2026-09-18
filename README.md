@@ -55,3 +55,19 @@ capabilities are still the floor.
 composer install
 composer run lint
 ```
+
+## Testing
+
+End-to-end tests boot a real WordPress instance via
+[WordPress Playground](https://wordpress.github.io/wordpress-playground/) and drive
+every enforcement path with actual HTTP requests: auth-time revoke/expiry/XML-RPC
+gating, and dispatch-time post-type and ability scope.
+
+```
+npm install
+npx playwright install --with-deps chromium
+npm run test:e2e
+```
+
+`npm run playground:start` boots the same environment for manual poking, at
+whatever URL it prints.

@@ -22,4 +22,5 @@ define( 'HLB_SAP_DIR', plugin_dir_path( __FILE__ ) );
 
 require_once HLB_SAP_DIR . 'includes/class-plugin.php';
 
+register_activation_hook( __FILE__, array( 'HLB_SAP\\Plugin', 'activate' ) );
 add_action( 'plugins_loaded', array( 'HLB_SAP\\Plugin', 'init' ) );

@@ -11,7 +11,7 @@
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
 
-    <rule ref="WordPress">
+    <rule ref="WordPress-Extra">
         <exclude name="WordPress.Files.FileName"/>
     </rule>
 

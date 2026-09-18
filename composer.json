@@ -16,6 +16,9 @@
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
+    "suggest": {
+        "wp-cli/wp-cli-bundle": "Needed to run wp hlb-sap issue|revoke|list-credentials"
+    },
     "scripts": {
         "lint": "phpcs"
     }

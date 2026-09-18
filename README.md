@@ -11,12 +11,28 @@ A credential can be limited to:
 
 ## Status
 
-Early scaffold. Architecture decisions are tracked in [`decisions/`](decisions/).
+Core enforcement is implemented: expiry/revoke at auth time, ability and post-type
+scope at dispatch time. No admin UI yet; credentials are issued and managed through
+WP-CLI. Architecture decisions are tracked in [`decisions/`](decisions/).
 
 ## Requirements
 
 - WordPress 6.9+ (Abilities API)
 - PHP 7.4+
+
+## Usage
+
+```
+wp hlb-sap issue 12 --name="Content agent" --abilities=my-plugin/export-users --post-types=post
+wp hlb-sap issue 12 --name="Read-only reporting" --post-types=post,page --expires="+30 days"
+wp hlb-sap list-credentials
+wp hlb-sap revoke <uuid>
+wp hlb-sap revoke <uuid> --delete
+```
+
+Omit `--abilities` or `--post-types` entirely to leave that dimension unrestricted;
+pass an empty value to allow none. A credential with neither flag set behaves like
+an ordinary Application Password with an expiry.
 
 ## Development
 
